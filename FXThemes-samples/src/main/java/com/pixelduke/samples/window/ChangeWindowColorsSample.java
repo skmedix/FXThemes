@@ -1,8 +1,5 @@
 package com.pixelduke.samples.window;
 
-import com.pixelduke.transit.Style;
-import com.pixelduke.transit.TransitStyleClass;
-import com.pixelduke.transit.TransitTheme;
 import com.pixelduke.window.ThemeWindowManagerFactory;
 import com.pixelduke.window.Win11ThemeWindowManager;
 import javafx.application.Application;
@@ -71,11 +68,6 @@ public class ChangeWindowColorsSample extends Application {
 
         // Create a scene with the GridPane.
         Scene scene = new Scene(root, 500, 250);
-
-        root.getStyleClass().add(TransitStyleClass.BACKGROUND);
-
-        TransitTheme transitTheme = new TransitTheme(Style.DARK);
-        transitTheme.setScene(scene);
 
         primaryStage.setTitle("Window Frame Colors");
         primaryStage.setScene(scene);

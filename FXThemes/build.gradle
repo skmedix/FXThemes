@@ -2,10 +2,9 @@ plugins {
     id 'signing'
     id "java-library"
     id "maven-publish"
-    id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
+sourceCompatibility = JavaVersion.VERSION_1_8
 
 version = '1.0.0'
 
@@ -22,11 +21,6 @@ ext {
 }
 
 /* ------- */
-
-javafx {
-    version = "21"
-    modules = [ 'javafx.controls' ]
-}
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 

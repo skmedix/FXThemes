@@ -50,25 +50,29 @@ public class Win11ThemeWindowManager implements ThemeWindowManager {
 
     public void setWindowBackdrop(Window window, Backdrop backdrop) {
         switch (backdrop) {
-            case NONE -> DwmSupport.INSTANCE.DwmSetWindowAttribute(
+            case NONE:
+                DwmSupport.INSTANCE.DwmSetWindowAttribute(
                             WindowUtils.getNativeHandleOfStage(window),
                             DWMA_WINDOW_ATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE.getValue(),
                             new WinDef.DWORDByReference(new WinDef.DWORD(DWM_SYSTEMBACKDROP_TYPE.NONE.getValue())),
                             WinDef.DWORD.SIZE
                         );
-            case MICA -> DwmSupport.INSTANCE.DwmSetWindowAttribute(
+            case MICA:
+                DwmSupport.INSTANCE.DwmSetWindowAttribute(
                             WindowUtils.getNativeHandleOfStage(window),
                             DWMA_WINDOW_ATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE.getValue(),
                             new WinDef.DWORDByReference(new WinDef.DWORD(DWM_SYSTEMBACKDROP_TYPE.MICA.getValue())),
                             WinDef.DWORD.SIZE
                         );
-            case MICA_ALT -> DwmSupport.INSTANCE.DwmSetWindowAttribute(
+            case MICA_ALT:
+                DwmSupport.INSTANCE.DwmSetWindowAttribute(
                                 WindowUtils.getNativeHandleOfStage(window),
                                 DWMA_WINDOW_ATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE.getValue(),
                                 new WinDef.DWORDByReference(new WinDef.DWORD(DWM_SYSTEMBACKDROP_TYPE.MICA_ALT.getValue())),
                                 WinDef.DWORD.SIZE
                             );
-            case ACRYLIC -> DwmSupport.INSTANCE.DwmSetWindowAttribute(
+            case ACRYLIC:
+                DwmSupport.INSTANCE.DwmSetWindowAttribute(
                                 WindowUtils.getNativeHandleOfStage(window),
                                 DWMA_WINDOW_ATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE.getValue(),
                                 new WinDef.DWORDByReference(new WinDef.DWORD(DWM_SYSTEMBACKDROP_TYPE.ACRYLIC.getValue())),

@@ -1,7 +1,5 @@
 package com.pixelduke.samples.window;
 
-import com.pixelduke.transit.Style;
-import com.pixelduke.transit.TransitTheme;
 import com.pixelduke.window.ThemeWindowManagerFactory;
 import com.pixelduke.window.Win11ThemeWindowManager;
 import javafx.application.Application;
@@ -60,10 +58,6 @@ public class WindowBackdropSample extends Application {
 
         Scene scene = new Scene(hbox, 600, 400);
         scene.setFill(Color.TRANSPARENT);
-
-        TransitTheme transitTheme = new TransitTheme(Style.LIGHT);
-        transitTheme.setScene(scene);
-
 
         primaryStage.setTitle("Window Frame Materials");
         primaryStage.initStyle(StageStyle.UNIFIED);
