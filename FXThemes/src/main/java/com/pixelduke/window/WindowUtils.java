@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 public class WindowUtils {
     public static WinDef.HWND getNativeHandleOfStage(Window stage) {
         try {
-            final Method getPeer = Window.class.getDeclaredMethod("getPeer", null);
+            final Method getPeer = Window.class.getDeclaredMethod(checkForGetPeer() ? "getPeer" : "impl_getPeer", null);
             getPeer.setAccessible(true);
             final Object tkStage = getPeer.invoke(stage);
             final Method getRawHandle = tkStage.getClass().getMethod("getRawHandle");
@@ -19,6 +19,16 @@ public class WindowUtils {
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;
+        }
+    }
+
+    private static boolean checkForGetPeer() {
+        try {
+            final Method getPeer = Window.class.getDeclaredMethod("getPeer", null);
+            getPeer.setAccessible(true);
+            return true;
+        } catch (Exception ex) {
+            return false;
         }
     }
 }
