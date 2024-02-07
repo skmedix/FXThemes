@@ -1,8 +1,5 @@
 package com.pixelduke.samples.window;
 
-import com.pixelduke.transit.Style;
-import com.pixelduke.transit.TransitTheme;
-import com.pixelduke.window.ThemeWindowManager;
 import com.pixelduke.window.ThemeWindowManagerFactory;
 import com.pixelduke.window.Win10ThemeWindowManager;
 import javafx.application.Application;
@@ -23,7 +20,7 @@ public class Windows10BackdropSample extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        ThemeWindowManager themeWindowManager = ThemeWindowManagerFactory.create();
+        Win10ThemeWindowManager themeWindowManager = (Win10ThemeWindowManager) ThemeWindowManagerFactory.create();
 
         StackPane root = new StackPane();
 

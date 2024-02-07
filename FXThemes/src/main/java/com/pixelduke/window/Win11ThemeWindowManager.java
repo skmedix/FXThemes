@@ -17,6 +17,7 @@ public class Win11ThemeWindowManager implements ThemeWindowManager {
         ACRYLIC
     }
 
+    @Override
     public void setDarkModeForWindowFrame(Window window, boolean darkMode) {
         DWM.setWindowAttribute(
                 WindowUtils.getNativeHandleOfStage(window),
@@ -33,6 +34,7 @@ public class Win11ThemeWindowManager implements ThemeWindowManager {
         );
     }
 
+    @Override
     public void setWindowFrameColor(Window window, Color color) {
         DWM.setWindowAttribute(
                 WindowUtils.getNativeHandleOfStage(window),
@@ -52,27 +54,27 @@ public class Win11ThemeWindowManager implements ThemeWindowManager {
         switch (backdrop) {
             case MICA:
                 DwmSupport.INSTANCE.DwmSetWindowAttribute(
-                            WindowUtils.getNativeHandleOfStage(window),
-                            DWMA_WINDOW_ATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE.getValue(),
-                            new WinDef.DWORDByReference(new WinDef.DWORD(DWM_SYSTEMBACKDROP_TYPE.MICA.getValue())),
-                            WinDef.DWORD.SIZE
-                        );
+                        WindowUtils.getNativeHandleOfStage(window),
+                        DWMA_WINDOW_ATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE.getValue(),
+                        new WinDef.DWORDByReference(new WinDef.DWORD(DWM_SYSTEMBACKDROP_TYPE.MICA.getValue())),
+                        WinDef.DWORD.SIZE
+                );
                 break;
             case MICA_ALT:
                 DwmSupport.INSTANCE.DwmSetWindowAttribute(
-                                WindowUtils.getNativeHandleOfStage(window),
-                                DWMA_WINDOW_ATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE.getValue(),
-                                new WinDef.DWORDByReference(new WinDef.DWORD(DWM_SYSTEMBACKDROP_TYPE.MICA_ALT.getValue())),
-                                WinDef.DWORD.SIZE
-                            );
+                        WindowUtils.getNativeHandleOfStage(window),
+                        DWMA_WINDOW_ATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE.getValue(),
+                        new WinDef.DWORDByReference(new WinDef.DWORD(DWM_SYSTEMBACKDROP_TYPE.MICA_ALT.getValue())),
+                        WinDef.DWORD.SIZE
+                );
                 break;
             case ACRYLIC:
                 DwmSupport.INSTANCE.DwmSetWindowAttribute(
-                                WindowUtils.getNativeHandleOfStage(window),
-                                DWMA_WINDOW_ATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE.getValue(),
-                                new WinDef.DWORDByReference(new WinDef.DWORD(DWM_SYSTEMBACKDROP_TYPE.ACRYLIC.getValue())),
-                                WinDef.DWORD.SIZE
-                            );
+                        WindowUtils.getNativeHandleOfStage(window),
+                        DWMA_WINDOW_ATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE.getValue(),
+                        new WinDef.DWORDByReference(new WinDef.DWORD(DWM_SYSTEMBACKDROP_TYPE.ACRYLIC.getValue())),
+                        WinDef.DWORD.SIZE
+                );
                 break;
             default:
                 DwmSupport.INSTANCE.DwmSetWindowAttribute(

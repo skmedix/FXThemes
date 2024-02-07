@@ -1,14 +1,17 @@
 package com.pixelduke.window;
 
-import com.sun.jna.*;
+import com.sun.jna.Function;
+import com.sun.jna.Native;
+import com.sun.jna.NativeLibrary;
 import com.sun.jna.platform.win32.Kernel32;
 import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinNT;
 import impl.com.pixelduke.window.win32.windows10.AccentPolicy;
 import impl.com.pixelduke.window.win32.windows10.WindowCompositionAttributeData;
+import javafx.scene.paint.Color;
 import javafx.stage.Window;
 
-import static impl.com.pixelduke.window.win32.windows10.AccentState.*;
+import static impl.com.pixelduke.window.win32.windows10.AccentState.ACCENT_ENABLE_BLURBEHIND;
 import static impl.com.pixelduke.window.win32.windows10.WindowCompositionAttribute.WCA_ACCENT_POLICY;
 import static impl.com.pixelduke.window.win32.windows10.WindowCompositionAttribute.WCA_USEDARKMODECOLORS;
 
@@ -45,6 +48,7 @@ public class Win10ThemeWindowManager implements ThemeWindowManager {
         setWindowCompositionAttribute = user32.getFunction("SetWindowCompositionAttribute");
     }
 
+    @Override
     public void setDarkModeForWindowFrame(Window window, boolean darkMode) {
 //        _AllowDarkModeForWindow(hDlg, g_darkModeEnabled);
 //        RefreshTitleBarThemeColor(hDlg);
@@ -81,7 +85,13 @@ public class Win10ThemeWindowManager implements ThemeWindowManager {
         forceWindowRefresh(window);
     }
 
+    @Override
+    public void setWindowFrameColor(Window window, Color color) {
+
+    }
+
     private boolean previouslyIncrementedWidth = false;
+
     private void forceWindowRefresh(Window window) {
         // Hack - we increment / decrement window width to force a refresh so that the Frame decorations are repainted
 
@@ -117,6 +127,6 @@ public class Win10ThemeWindowManager implements ThemeWindowManager {
     }
 
     private WinNT.HRESULT setWindowCompositionAttribute(Window window, WindowCompositionAttributeData data) {
-        return (WinNT.HRESULT) setWindowCompositionAttribute.invoke(WinNT.HRESULT.class, new Object[] { WindowUtils.getNativeHandleOfStage(window), data });
+        return (WinNT.HRESULT) setWindowCompositionAttribute.invoke(WinNT.HRESULT.class, new Object[]{WindowUtils.getNativeHandleOfStage(window), data});
     }
 }
