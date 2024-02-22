@@ -30,3 +30,17 @@ build/
 
 # Ignore Gradle build output directory
 build
+
+# Maven
+log/
+target/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Mac
+.DS_Store
+**/xcuserdata/
+**/xcuserdata/*
