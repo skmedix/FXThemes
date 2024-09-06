@@ -27,7 +27,6 @@ public abstract class ThemeWindowManagerFactory {
                 break;
         }
 
-        System.out.println("Warning: Unsupported Window Operating System");
-        return null;
+        throw new RuntimeException("Unsupported Window Operating System");
     }
 }
